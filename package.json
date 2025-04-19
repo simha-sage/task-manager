@@ -1,0 +1,23 @@
+{
+  "name": "task-manager",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/simha-sage/task-manager.git"
+  },
+  "author": "Lakshmi Narasimha",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/simha-sage/task-manager/issues"
+  },
+  "homepage": "https://github.com/simha-sage/task-manager#readme",
+  "description": "",
+  "dependencies": {
+    "express": "^5.1.0",
+    "mongoose": "^8.13.2"
+  }
+}
