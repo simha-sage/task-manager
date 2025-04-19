@@ -23,22 +23,27 @@ const showdata=async ()=>{
     console.log(tasks)
     tasks.forEach(task => {
         const li=document.createElement("li")
+        li.style.display="flex"
+        li.style.alignItems="center"
+        li.style.marginBottom="10px"
+
+
         const box=document.createElement("button")
-        const checkBox=document.createElement("input")
-        checkBox.type="checkbox"
         box.textContent="❌"
-        box.style.marginLeft="30px"
+        box.style.marginLeft="10px"
+        box.style.cursor="pointer"
         box.onclick=async()=>{
             await fetch(`/delete/${task._id}`,{
                 method:"DELETE"
             })
             showdata()
         }
-        li.textContent=`${task.taskValue}-${task.state ? "✔" : "✘"}`
-        if(task.state){
-            li.style.textDecoration = "line-through";
-            checkBox.checked=true
-        }
+
+
+        const checkBox=document.createElement("input")
+        checkBox.type="checkbox"
+        checkBox.style.marginLeft="10px"
+        checkBox.checked=task.state
         checkBox.onclick=async()=>{
             await fetch(`/update`,{
                 method:"PATCH",
@@ -48,8 +53,18 @@ const showdata=async ()=>{
             })
             showdata()
         }
+
+        const text=document.createElement("span")
+        text.textContent=task.taskValue
+        if(task.state){
+            li.style.textDecoration = "line-through";
+        }
+        
+        
         li.append(checkBox)
-        list.appendChild(li).appendChild(box)
+        li.append(text)
+        li.append(box)
+        list.appendChild(li)
     });
 }
 show.addEventListener("click",showdata)
