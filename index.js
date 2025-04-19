@@ -15,12 +15,12 @@ app.post("/add",async (req,res)=>{
 })
 
 app.get("/show",async(req,res)=>{
-    const data=await Task.find()
+    const data=await Task.find().sort({_id:-1})
     res.send(data)
 })
 
-app.delete("/delete",async (req,res)=>{
-    const id=req.body.id
+app.delete("/delete/:id",async (req,res)=>{
+    const id=req.params.id
     const data=await Task.findByIdAndDelete(id)
     res.send(data)
 })
