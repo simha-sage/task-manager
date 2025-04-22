@@ -17,6 +17,7 @@
   "homepage": "https://github.com/simha-sage/task-manager#readme",
   "description": "",
   "dependencies": {
+    "dotenv": "^16.5.0",
     "express": "^5.1.0",
     "mongoose": "^8.13.2"
   }
